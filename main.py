@@ -14,6 +14,11 @@ def echo(name):
     val = {"new-name": name}
     return jsonify(val)
 
+@app.route('/name/<value>')
+def name(value):
+    print(f"This was placed in the url: new-{value}")
+    val = {"supplied-name": value}
+    return jsonify(val)
 
 if __name__ == '__main__':
     app.run(host='127.0.0.1', port=8080, debug=True)
