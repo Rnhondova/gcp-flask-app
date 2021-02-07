@@ -5,15 +5,17 @@ import holidays
 
 app = Flask(__name__)
 
-@app.route('/')
+
+@app.route("/")
 def hello():
     """Return a friendly HTTP greeting."""
     print("")
-    return 'Hello World! This is a landing page to a sample project showing continuous delivery.'
+    return "Hello World! This is a landing page to a sample project showing continuous delivery."
 
-@app.route('/next_business_day/<from_date>')
+
+@app.route("/next_business_day/<from_date>")
 def next_business_day(from_date):
-    from_date = datetime.datetime.strptime(from_date, '%m-%d-%Y')
+    from_date = datetime.datetime.strptime(from_date, "%m-%d-%Y")
     ONE_DAY = datetime.timedelta(days=1)
     HOLIDAYS_US = holidays.US()
 
@@ -23,11 +25,13 @@ def next_business_day(from_date):
     val = {"Next business day": next_day}
     return jsonify(val)
 
-@app.route('/name/<value>')
+
+@app.route("/name/<value>")
 def name(value):
     print(f"This was placed in the url: new-{value}")
     val = {"Supplied Name": value}
     return jsonify(val)
 
-if __name__ == '__main__':
-    app.run(host='127.0.0.1', port=8080, debug=True)
+
+if __name__ == "__main__":
+    app.run(host="127.0.0.1", port=8080, debug=True)
