@@ -1,3 +1,6 @@
 flask
 pytest
 pylint
+pendulum
+holidays
+datetime
