@@ -6,4 +6,4 @@ def test_index():
 
     r = client.get('/')
     assert r.status_code == 200
-    assert 'Hello World! CD' in r.data.decode('utf-8')
+    assert 'Hello World! This is a landing page to a sample project showing continuous delivery.' in r.data.decode('utf-8')
